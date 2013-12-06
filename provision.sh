@@ -2,8 +2,13 @@
 
 VERSION=2.2
 
-
 export DEBIAN_FRONTEND=noninteractive
+
+
+function die {
+    echo $*
+    exit 1
+}
 
 function pre_setup {
     #apt-get update > /dev/null
@@ -14,11 +19,6 @@ function install_prereqs {
     apt-get -y install build-essential
     apt-get -y install bison flex cmake swig
     apt-get -y install libssl-dev libgeoip-dev libmagic-dev libpcap-dev python-dev libcurl4-openssl-dev
-}
-
-function die {
-    echo $*
-    exit 1
 }
 
 function install_bro {
