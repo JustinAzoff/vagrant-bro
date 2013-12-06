@@ -39,11 +39,21 @@ function install_bro {
     make || die "build failed"
     sudo make install || die "install failed"
 
+}
+
+function configure_bro {
+    if [ ! -e /bro ]; then
+        ln -s /usr/local/bro /bro
+    fi
+    if [ ! -e /bro/site ]; then
+        (cd /bro ; ln -s share/bro/site . )
+    fi
     
 }
 
 pre_setup
 install_prereqs
 install_bro
+configure_bro
 
 exit 0
