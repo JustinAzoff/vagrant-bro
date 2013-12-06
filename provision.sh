@@ -11,8 +11,8 @@ function die {
 }
 
 function pre_setup {
-    #apt-get update > /dev/null
-    apt-get dist-upgrade -y
+    apt-get update > /dev/null
+    #apt-get dist-upgrade -y
 }
 
 function install_prereqs {
